@@ -8,16 +8,5 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     
-    
-    <string-array name="names">
-           <item>Select the Category</item>
-        <item>Properties</item>
-        <item>Vehicles</item>
-        <item>Electronics</item>
-        <item>Clothings/Accessories</item>
-
-
-
-    </string-array>
 
 </resources>
