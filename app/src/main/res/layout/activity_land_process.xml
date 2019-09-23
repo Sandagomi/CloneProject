@@ -6,30 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LandProcess" >
 
-    <TextView
-        android:id="@+id/textViewLN"
-        android:layout_width="330dp"
-        android:layout_height="56dp"
-        android:text="Land Place"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
-
-    <TextView
-        android:id="@+id/textViewLP"
-        android:layout_width="335dp"
-        android:layout_height="58dp"
-        android:text="Land Price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
-
     <Button
         android:id="@+id/ButtonSB"
         android:layout_width="wrap_content"
@@ -41,4 +17,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32" />
+
+    <EditText
+        android:id="@+id/editTextLN"
+        android:layout_width="352dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="LandName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.311"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <EditText
+        android:id="@+id/editTextLP"
+        android:layout_width="352dp"
+        android:layout_height="68dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="LandPlace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.177" />
 </androidx.constraintlayout.widget.ConstraintLayout>
