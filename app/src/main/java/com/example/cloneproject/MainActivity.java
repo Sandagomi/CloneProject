@@ -31,14 +31,17 @@ public class MainActivity extends AppCompatActivity {
 
         myFirstSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
-                if (currentItem == 1 ) {
+                if (position == 1 ) {
 
                     Intent intent = new Intent(MainActivity.this, Properties.class);
                     startActivity(intent);
 
+
                 }
+
+
 
             }
 
