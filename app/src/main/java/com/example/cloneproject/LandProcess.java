@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -151,19 +152,11 @@ public class LandProcess extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
     }
 
 
 
-
+        //image selector process
 
             private void openFileChooser() {
 
@@ -171,9 +164,6 @@ public class LandProcess extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent,PICK_IMAGE_REQUEST);
-
-
-
 
 
             }
@@ -189,7 +179,8 @@ public class LandProcess extends AppCompatActivity {
 
                 mimageUri = data.getData();
 
-                
+                Picasso.get().load(mimageUri).into(imageViewUploads);
+
 
 
             }
