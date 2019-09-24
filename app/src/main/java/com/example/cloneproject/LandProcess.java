@@ -5,11 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.LauncherActivity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,11 +22,17 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -41,6 +50,8 @@ public class LandProcess extends AppCompatActivity {
     private ProgressBar mprogressBar;
 
     private Uri mimageUri;
+
+    private StorageReference mStorageRef;
 
 
     EditText editTextLP;
@@ -65,6 +76,8 @@ public class LandProcess extends AppCompatActivity {
         imageViewUploads = findViewById(R.id.imageView4);
         mprogressBar = findViewById(R.id.progressBar);
 
+        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
+        databaseLands = FirebaseDatabase.getInstance().getReference("uploads");
 
 
         buttonSelect.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +92,8 @@ public class LandProcess extends AppCompatActivity {
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                uploadFile();
 
             }
         });
@@ -186,17 +201,77 @@ public class LandProcess extends AppCompatActivity {
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
+
+
+    // image upload button process
+
+
+            private String getFileExtension (Uri uri) {
+
+                ContentResolver cR = getContentResolver();
+                MimeTypeMap mime  = MimeTypeMap.getSingleton();
+                return mime.getExtensionFromMimeType(cR.getType(uri));
+            }
+
+            private void uploadFile() {
+
+                    if ( mimageUri != null) {
+
+                        StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension( mimageUri));
+
+                        fileReference.putFile( mimageUri)
+                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                        Handler handler = new Handler();
+                                        handler.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+
+                                                mprogressBar.setProgress(0);
+                                            }
+                                        }, 5000);
+
+                                        Toast.makeText(LandProcess.this, "Upload Successful", Toast.LENGTH_LONG).show();
+                                        imageUploadLand upload = new imageUploadLand(editTextNameImage.getText().toString().trim(),
+                                                taskSnapshot.getStorage().getDownloadUrl().toString());
+
+                                        String uploadId = databaseLands.push().getKey();
+                                        databaseLands .child(uploadId).setValue(upload);
+
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                        Toast.makeText(LandProcess.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                })
+                                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount() );
+                                        mprogressBar.setProgress((int)progress);
+
+                                    }
+                                });
+
+                    }else {
+
+                        Toast.makeText(this, "No file Selected", Toast.LENGTH_SHORT).show();
+                    }
+
+            }
+
+
+
+
+
+
 }
