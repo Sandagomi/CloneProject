@@ -2,15 +2,7 @@
     <string name="app_name">CloneProject</string>
 
 
-    <string-array name="names">
-        <item>Select the Category</item>
-        <item>Properties</item>
-        <item>Vehicles</item>
-        <item>Electronics</item>
-        <item>Clothings/Accessories</item>
-
-
-    </string-array>
+    <string name="cloth">Clothings</string>
 
     <string-array name="places">
         <item>Select the Area</item>
@@ -21,5 +13,29 @@
 
 
     </string-array>
+    <string-array name="names">
+        <item>Select the Category</item>
+        <item>Properties</item>
+        <item>Vehicles</item>
+        <item>Electronics</item>
+        <item>Clothings/Accessories</item>
+
+
+    </string-array>
+    <string-array name="category">
+        <item>Womens Fashion</item>
+        <item>Mens Fashion</item>
+        <item>Kids Fashion</item>
+        <item>Babies Fashion</item>
+    </string-array>
+    <string name="sec_cat">Select Category</string>
+    <string name="item_ID">Add Item ID</string>
+    <string name="add_title">Add Title</string>
+    <string name="add_price">Add Price</string>
+    <string name="add_description">Add Description</string>
+    <string name="add_contact_no">Add Contact No</string>
+    <string name="add_email">Add E-mail</string>
+    <string name="add_photos">Choose Image</string>
+    <string name="btn_save">Save</string>
 
 </resources>

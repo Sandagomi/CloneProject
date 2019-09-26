@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MainActivity.this, Properties.class);
                     startActivity(intent);
-
-
+                }
+                if(position == 4){
+                    Intent intent = new Intent(MainActivity.this,MainClothing.class);
+                    startActivity(intent);
                 }
 
 

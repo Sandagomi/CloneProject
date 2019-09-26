@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cloneproject">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LandProcess"></activity>
+        <activity android:name=".AddItemsToClothing"></activity>
+        <activity android:name=".BabyFashion" />
+        <activity android:name=".KidsFashion" />
+        <activity android:name=".MensFashion" />
+        <activity android:name=".WomensFashion" />
+        <activity android:name=".MainClothing" />
+        <activity android:name=".LandProcess" />
         <activity android:name=".Properties" />
         <activity android:name=".MainActivity">
             <intent-filter>
