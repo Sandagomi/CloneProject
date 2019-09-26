@@ -80,7 +80,7 @@ public class ApartmentProcess extends AppCompatActivity {
        aImageView    = findViewById(R.id.imageView4);
        aSubmit       = findViewById(R.id.ButtonSBAp);
        aShowUploads  = findViewById(R.id.text_view_show_uploads_Ap);
-       mStorageRef = FirebaseStorage.getInstance().getReference("Apartments");
+       mStorageRef   = FirebaseStorage.getInstance().getReference("Apartments");
        databaseLands = FirebaseDatabase.getInstance().getReference("Apartments");
 
 
