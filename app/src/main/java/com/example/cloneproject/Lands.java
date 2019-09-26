@@ -8,23 +8,25 @@ public class Lands {
 
     private String landId;
     private String landPlace;
-    private String landPrice;
+    private String landArea;
 
     public Lands() {
 
     }
 
-    public Lands(String landId, String landPlace, String landPrice) {
+    public Lands(String landId, String landPlace, String landArea) {
         this.landId = landId;
         this.landPlace = landPlace;
-        this.landPrice = landPrice;
+        this.landArea = landArea;
     }
 
     public String getLandId() {
+
         return landId;
     }
 
     public void setLandId(String landId) {
+
         this.landId = landId;
     }
 
@@ -36,11 +38,11 @@ public class Lands {
         this.landPlace = landPlace;
     }
 
-    public String getLandPrice() {
-        return landPrice;
+    public String getLandArea() {
+        return landArea;
     }
 
-    public void setLandPrice(String landPrice) {
-        this.landPrice = landPrice;
+    public void setLandArea(String landArea) {
+        this.landArea = landArea;
     }
 }

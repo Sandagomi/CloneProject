@@ -23,5 +23,15 @@ public class Properties extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+
+        Button buttonApartment = (Button) findViewById(R.id.ButtonApartment);
+        buttonApartment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getApplicationContext(),ApartmentProcess.class);
+                startActivity(startIntent);
+            }
+        });
     }
 }
