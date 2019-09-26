@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
 
+                } else if (position == 2) {
+
+                    Intent intentTwo = new Intent (MainActivity.this, Vehicles.class);
+                    startActivity(intentTwo);
                 }
 
 

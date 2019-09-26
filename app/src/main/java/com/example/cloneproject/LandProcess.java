@@ -51,6 +51,7 @@ public class LandProcess extends AppCompatActivity {
     private ImageView imageViewUploads;
     private ProgressBar mprogressBar;
     private TextView mTextViewShowUploads;
+    private EditText landPrice;
     private Uri mimageUri;
 
     private StorageReference mStorageRef;
@@ -77,6 +78,7 @@ public class LandProcess extends AppCompatActivity {
         buttonUpload = findViewById(R.id.buttonUpload);
         editTextNameImage = findViewById(R.id.editTextIP);
         imageViewUploads = findViewById(R.id.imageView4);
+        landPrice = findViewById(R.id.editTextLPrice);
         mprogressBar = findViewById(R.id.progressBar);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
@@ -159,17 +161,20 @@ public class LandProcess extends AppCompatActivity {
 
                 String lPlace = editTextLP.getText().toString().trim();
                 String sSpinner = secondSpinner. getSelectedItem().toString();
+                double lPrice = Double.parseDouble(landPrice.getText().toString().trim());
 
                 if(!TextUtils.isEmpty(lPlace)) {
 
                  //unique id generator
                     String landId = databaseLands.push().getKey();
                  // creates a land object
-                    Lands lands = new Lands(landId,lPlace,sSpinner);
+                    Lands lands = new Lands(landId,lPlace,sSpinner,lPrice);
                  //save the land
                     databaseLands.child(landId).setValue(lands);
                  //setting land name text box to blank again
                     editTextLP.setText("");
+
+                    landPrice.setText("");
 
                     Toast.makeText (getApplicationContext(), "Land saved Successfully", Toast.LENGTH_LONG) .show();
 

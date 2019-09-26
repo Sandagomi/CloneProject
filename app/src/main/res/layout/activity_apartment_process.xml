@@ -39,10 +39,10 @@
         android:layout_height="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <EditText
         android:id="@+id/editTextIPAp"
@@ -53,10 +53,10 @@
         android:text="Name Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <Button
         android:id="@+id/buttonIPAp"
@@ -68,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.361" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -79,8 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
-
+        app:layout_constraintVertical_bias="0.434" />
 
     <Button
         android:id="@+id/buttonUploadAp"
@@ -92,7 +91,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -105,7 +104,7 @@
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.836" />
 
     <TextView
         android:id="@+id/text_view_show_uploads_Ap"
@@ -119,5 +118,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.973" />
+
+    <EditText
+        android:id="@+id/editTextAPrice"
+        android:layout_width="352dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

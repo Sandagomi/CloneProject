@@ -50,10 +50,17 @@ public class ApartmentProcess extends AppCompatActivity {
     private TextView aShowUploads;
     private ArrayList<Apartments> apartments;
     private Uri aimageUri;
+    private EditText apartmentPrice;
 
-    private StorageReference aStorageRef;
-    private StorageTask aUploadTask;
-    private DatabaseReference databaseApartments;
+ //   private StorageReference aStorageRef;
+   // private StorageTask aUploadTask;
+  //  private DatabaseReference databaseApartments;
+
+    private StorageReference mStorageRef;
+    private StorageTask      mUploadTask;
+    private DatabaseReference  databaseLands;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,11 +76,12 @@ public class ApartmentProcess extends AppCompatActivity {
        aNameImage    = findViewById(R.id.editTextIPAp);
        aProgressBar  = findViewById(R.id.progressBar2);
        aimageUpload  = findViewById(R.id.buttonUploadAp);
+       apartmentPrice = findViewById(R.id.editTextAPrice);
        aImageView    = findViewById(R.id.imageView4);
        aSubmit       = findViewById(R.id.ButtonSBAp);
        aShowUploads  = findViewById(R.id.text_view_show_uploads_Ap);
-       aStorageRef = FirebaseStorage.getInstance().getReference("uploads/Apartments");
-       databaseApartments = FirebaseDatabase.getInstance().getReference("uploads/Apartments");
+       mStorageRef = FirebaseStorage.getInstance().getReference("Apartments");
+       databaseLands = FirebaseDatabase.getInstance().getReference("Apartments");
 
 
 
@@ -87,23 +95,17 @@ public class ApartmentProcess extends AppCompatActivity {
             }
         });
 
-       /* aimageUpload.setOnClickListener(new View.OnClickListener() {
+          aimageUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (aShowUploads != null && aShowUploads.isInProgress()) {
-
-                    Toast.makeText(ApartmentProcess.this, "Upload is in progress", Toast.LENGTH_SHORT).show();
-
-                } else {
-
                     uploadFile();
-                }
+
 
 
 
             }
-        });*/
+        });
 
         aNameImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +127,7 @@ public class ApartmentProcess extends AppCompatActivity {
 
         // places spinner
 
-        final Spinner thirdSpinner = (Spinner) findViewById(R.id.spinner3);
+        Spinner thirdSpinner = (Spinner) findViewById(R.id.spinner3);
 
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(ApartmentProcess.this,
@@ -140,7 +142,7 @@ public class ApartmentProcess extends AppCompatActivity {
 
         // edit text part regarding the apartment place
 
-        databaseApartments = FirebaseDatabase.getInstance().getReference("Apartments");
+        databaseLands= FirebaseDatabase.getInstance().getReference("Apartments");
         apartmentName = (EditText) findViewById(R.id.editTextNameAp);
         aplaces = (Spinner) findViewById(R.id.spinner3);
 
@@ -155,17 +157,20 @@ public class ApartmentProcess extends AppCompatActivity {
 
                 String aName = apartmentName.getText().toString().trim();
                 String tSpinner = aplaces.getSelectedItem().toString();
+                double aprice = Double.parseDouble(apartmentPrice.getText().toString().trim());
 
                 if(!TextUtils.isEmpty(aName)) {
 
                     //unique id generator
-                    String apartmentId = databaseApartments.push().getKey();
+                    String apartmentId = databaseLands.push().getKey();
                     // creates a apartment object
-                    Apartments apartments = new Apartments(apartmentId,aName,tSpinner);
+                    Apartments apartments = new Apartments(apartmentId,aName,tSpinner,aprice);
                     //save the apartment
-                    databaseApartments.child(apartmentId).setValue(apartments);
+                    databaseLands.child(apartmentId).setValue(apartments);
                     //setting apartment name text box to blank again
                     apartmentName.setText("");
+
+                    apartmentPrice.setText("");
 
                     Toast.makeText (getApplicationContext(), "Apartment saved Successfully", Toast.LENGTH_LONG) .show();
 
@@ -230,9 +235,9 @@ public class ApartmentProcess extends AppCompatActivity {
 
         if ( aimageUri != null) {
 
-            StorageReference fileReference = aStorageRef.child(System.currentTimeMillis()+"."+getFileExtension( aimageUri));
+            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension( aimageUri));
 
-            aUploadTask = fileReference.putFile( aimageUri)
+            mUploadTask = fileReference.putFile( aimageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -244,14 +249,14 @@ public class ApartmentProcess extends AppCompatActivity {
 
                                     aProgressBar.setProgress(0);
                                 }
-                            }, 5000);
+                            }, 500);
 
                             Toast.makeText(ApartmentProcess.this, "Upload Successful", Toast.LENGTH_LONG).show();
                             imageUploadLand upload = new imageUploadLand(aNameImage.getText().toString().trim(),
                                     taskSnapshot.getStorage().getDownloadUrl().toString());
 
-                            String uploadId = databaseApartments.push().getKey();
-                            databaseApartments .child(uploadId).setValue(upload);
+                            String uploadId = databaseLands.push().getKey();
+                            databaseLands .child(uploadId).setValue(upload);
 
                         }
                     })
@@ -284,7 +289,7 @@ public class ApartmentProcess extends AppCompatActivity {
 
     private void openImagesActivity() {
 
-        Intent intent = new Intent (this, Apartments.class );
+        Intent intent = new Intent (this, imageUploadApartment.class );
         startActivity(intent);
 
     }

@@ -8,28 +8,22 @@ public class Apartments {
     private String apartmentId;
     private String apartmentName;
     private String apartmentPlace;
-    private String aImageName;
-    private String mImageUrl;
-
-    public Apartments(String apartmentId, String aName, String tSpinner){
+    private double apartmentPrice;
 
 
-    }
-
-
-    public Apartments(String apartmentId, String apartmentName, String apartmentPlace, String aImageName, String mImageUrl) {
-
-        if(apartmentName.trim().equals("")){
-            apartmentName = "No Name";
-        }
-
-
-
+    public Apartments(String apartmentId, String apartmentName, String apartmentPlace, double apartmentPrice) {
         this.apartmentId = apartmentId;
         this.apartmentName = apartmentName;
         this.apartmentPlace = apartmentPlace;
-        this.aImageName = aImageName;
-        this.mImageUrl = mImageUrl;
+        this.apartmentPrice = apartmentPrice;
+    }
+
+    public double getApartmentPrice() {
+        return apartmentPrice;
+    }
+
+    public void setApartmentPrice(double apartmentPrice) {
+        this.apartmentPrice = apartmentPrice;
     }
 
     public String getApartmentId() {
@@ -54,21 +48,5 @@ public class Apartments {
 
     public void setApartmentPlace(String apartmentPlace) {
         this.apartmentPlace = apartmentPlace;
-    }
-
-    public String getaImageName() {
-        return aImageName;
-    }
-
-    public void setaImageName(String aImageName) {
-        this.aImageName = aImageName;
-    }
-
-    public String getmImageUrl() {
-        return mImageUrl;
-    }
-
-    public void setmImageUrl(String mImageUrl) {
-        this.mImageUrl = mImageUrl;
     }
 }
