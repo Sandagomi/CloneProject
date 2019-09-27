@@ -194,7 +194,7 @@ public class LandProcess extends AppCompatActivity {
 
                 mimageUri = data.getData();
 
-                Picasso.get().load(mimageUri).into(imageViewUploads);
+                Picasso.with(this).load(mimageUri).into(imageViewUploads);
 
 
 

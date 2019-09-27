@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MobilePhone">
+
+    <Button
+        android:id="@+id/button_choose_image_moile"
+        android:layout_width="152dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/txt_mobile_cNo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:text="@string/button_choose_image" />
+
+    <EditText
+        android:id="@+id/txt_mobile_name"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Phone Name" />
+
+    <EditText
+        android:id="@+id/txt_mobile_des"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txt_mobile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txt_mobile_cNo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txt_mobile_des"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/txt_computer_cNo" />
+
+
+    <Button
+        android:id="@+id/button_upload_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:text="@string/button_upload" />
+
+    <TextView
+        android:id="@+id/text_view_show_uploads_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="26dp"
+        android:text="@string/text_view_show_uploads" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_mobile"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="397dp"
+        android:layout_height="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginBottom="68dp" />
+
+    <ImageView
+        android:id="@+id/image_view_mobile"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_above="@+id/progress_bar_mobile"
+        android:layout_below="@+id/button_choose_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</RelativeLayout>

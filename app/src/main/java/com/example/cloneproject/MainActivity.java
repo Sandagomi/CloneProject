@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MainActivity.this, Properties.class);
                     startActivity(intent);
+                }else if (position == 3 ){
 
-
+                    Intent intent = new Intent(MainActivity.this, Electronic.class);
+                    startActivity(intent);
                 }
 
 

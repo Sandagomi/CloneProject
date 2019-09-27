@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">CloneProject</string>
+    <string name="mobilePhone"> Mobile Phone</string>
+    <string name="TelevitionButton">Televition</string>
+    <string name="computer">Computer</string>
+    <string name="msg1">Please select the category</string>
+    <string name="button_choose_image">Choose Photo</string>
+    <string name="txt_computer_name">Enter Computer name</string>
+    <string name="txt_computer_des">Enter Description</string>
+    <string name="txt_computer_cNo">Enter Phone No</string>
+    <string name="button_upload">Upload</string>
+    <string name="text_view_show_uploads">Show Uploads</string>
+    <string name="text_view_computer_name">Name</string>
+    <string name="text_view_computer_name1">Description</string>
+    <string name="text_view_computer_CNo">Contact Number</string>
 
 
     <string-array name="names">
