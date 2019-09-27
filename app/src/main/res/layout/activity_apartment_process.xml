@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandProcess" >
+    tools:context=".ApartmentProcess">
 
     <Button
-        android:id="@+id/ButtonSB"
+        android:id="@+id/ButtonSBAp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
@@ -19,12 +19,12 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <EditText
-        android:id="@+id/editTextLP"
+        android:id="@+id/editTextNameAp"
         android:layout_width="352dp"
         android:layout_height="63dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="LandPlace"
+        android:text="Apartment Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -34,18 +34,18 @@
 
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner3"
         android:layout_width="386dp"
         android:layout_height="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <EditText
-        android:id="@+id/editTextIP"
+        android:id="@+id/editTextIPAp"
         android:layout_width="210dp"
         android:layout_height="54dp"
         android:ems="10"
@@ -53,13 +53,13 @@
         android:text="Name Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373" />
+        app:layout_constraintVertical_bias="0.364" />
 
     <Button
-        android:id="@+id/buttonIP"
+        android:id="@+id/buttonIPAp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select Image"
@@ -68,10 +68,10 @@
         app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.361" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="377dp"
         android:layout_height="20dp"
@@ -79,10 +79,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.434" />
 
     <Button
-        android:id="@+id/buttonUpload"
+        android:id="@+id/buttonUploadAp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload"
@@ -91,23 +91,23 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="380dp"
         android:layout_height="254dp"
-        android:layout_above="@id/ButtonSB"
-        android:layout_below="@id/buttonUpload"
+        android:layout_above="@id/ButtonSBAp"
+        android:layout_below="@id/buttonUploadAp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851" />
+        app:layout_constraintVertical_bias="0.836" />
 
     <TextView
-        android:id="@+id/text_view_show_uploads"
+        android:id="@+id/text_view_show_uploads_Ap"
         android:layout_width="91dp"
         android:layout_height="43dp"
         android:gravity="center"
@@ -120,16 +120,17 @@
         app:layout_constraintVertical_bias="0.973" />
 
     <EditText
-        android:id="@+id/editTextLPrice"
-        android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:id="@+id/editTextAPrice"
+        android:layout_width="352dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:inputType="phone"
         android:text="Price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.152" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

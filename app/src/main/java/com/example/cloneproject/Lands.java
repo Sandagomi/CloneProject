@@ -9,15 +9,25 @@ public class Lands {
     private String landId;
     private String landPlace;
     private String landArea;
+    private double landPrice;
 
     public Lands() {
 
     }
 
-    public Lands(String landId, String landPlace, String landArea) {
+    public Lands(String landId, String landPlace, String landArea,double landPrice) {
         this.landId = landId;
         this.landPlace = landPlace;
         this.landArea = landArea;
+        this.landPrice = landPrice;
+    }
+
+    public double getLandPrice() {
+        return landPrice;
+    }
+
+    public void setLandPrice(double landPrice) {
+        this.landPrice = landPrice;
     }
 
     public String getLandId() {

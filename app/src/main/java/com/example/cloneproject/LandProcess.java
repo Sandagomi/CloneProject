@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
@@ -48,10 +50,12 @@ public class LandProcess extends AppCompatActivity {
     private EditText editTextNameImage;
     private ImageView imageViewUploads;
     private ProgressBar mprogressBar;
-
+    private TextView mTextViewShowUploads;
+    private EditText landPrice;
     private Uri mimageUri;
 
     private StorageReference mStorageRef;
+    private StorageTask mUploadTask;
 
 
     EditText editTextLP;
@@ -74,8 +78,9 @@ public class LandProcess extends AppCompatActivity {
         buttonUpload = findViewById(R.id.buttonUpload);
         editTextNameImage = findViewById(R.id.editTextIP);
         imageViewUploads = findViewById(R.id.imageView4);
+        landPrice = findViewById(R.id.editTextLPrice);
         mprogressBar = findViewById(R.id.progressBar);
-
+        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         databaseLands = FirebaseDatabase.getInstance().getReference("uploads");
 
@@ -93,7 +98,16 @@ public class LandProcess extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                uploadFile();
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+
+                    Toast.makeText(LandProcess.this, "Upload is in progress", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    uploadFile();
+                }
+
+
 
             }
         });
@@ -102,6 +116,14 @@ public class LandProcess extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    openImagesActivity();
             }
         });
 
@@ -139,17 +161,20 @@ public class LandProcess extends AppCompatActivity {
 
                 String lPlace = editTextLP.getText().toString().trim();
                 String sSpinner = secondSpinner. getSelectedItem().toString();
+                double lPrice = Double.parseDouble(landPrice.getText().toString().trim());
 
                 if(!TextUtils.isEmpty(lPlace)) {
 
                  //unique id generator
                     String landId = databaseLands.push().getKey();
                  // creates a land object
-                    Lands lands = new Lands(landId,lPlace,sSpinner);
+                    Lands lands = new Lands(landId,lPlace,sSpinner,lPrice);
                  //save the land
                     databaseLands.child(landId).setValue(lands);
                  //setting land name text box to blank again
                     editTextLP.setText("");
+
+                    landPrice.setText("");
 
                     Toast.makeText (getApplicationContext(), "Land saved Successfully", Toast.LENGTH_LONG) .show();
 
@@ -221,7 +246,7 @@ public class LandProcess extends AppCompatActivity {
 
                         StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension( mimageUri));
 
-                        fileReference.putFile( mimageUri)
+                        mUploadTask = fileReference.putFile( mimageUri)
                                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -266,6 +291,15 @@ public class LandProcess extends AppCompatActivity {
 
                         Toast.makeText(this, "No file Selected", Toast.LENGTH_SHORT).show();
                     }
+
+            }
+
+
+
+            private void openImagesActivity() {
+
+                Intent intent = new Intent (this, imageUploadLand.class);
+                startActivity(intent);
 
             }
 
